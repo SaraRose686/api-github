@@ -8,15 +8,21 @@ function displayResults(responseJson) {
     console.log(responseJson);
     $("#results-list").empty();
     // iterate through the results
-    responseJson.forEach( result => $("#results-list").append(
+    if(responseJson.length > 0 ) {
+        responseJson.forEach( result => $("#results-list").append(
             `<li><h3><a href="${result.html_url}">${
                 result.name
             }</a></h3>
             <p>${result.description}</p>
             </li>`
         ));
-    //display the results section
-    $("#results").removeClass("hidden");
+        //display the results section
+        $("#results").removeClass("hidden");
+    }
+    else {
+        $("#js-error-message").text(`No results found.`);
+    }
+    
 }
 
 function getRepo(query) {
