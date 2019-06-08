@@ -18,9 +18,11 @@ function displayResults(responseJson) {
         ));
         //display the results section
         $("#results").removeClass("hidden");
+        $("#js-error-message").empty();
     }
     else {
         $("#js-error-message").text(`No results found.`);
+        $("#results").addClass("hidden");
     }
     
 }
