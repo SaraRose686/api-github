@@ -42,6 +42,7 @@ function getRepo(query) {
         .then(responseJson => displayResults(responseJson))
         .catch(err => {
             $("#js-error-message").text(`Something went wrong: ${err.message}`);
+            $("#results").addClass("hidden");
         });
 }
 
